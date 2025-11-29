@@ -1,0 +1,27 @@
+﻿@import '@styles/dependencies';
+
+header {
+  background-color: #ddd3d3;
+  display: flex;
+  font-size: 1.1rem;
+  justify-content: space-between;
+  padding: .3rem;
+}
+
+@mixin headerButtons {
+  display: flex;
+  flex-direction: row;
+  gap: .4rem;
+}
+
+.pageNames {
+  @include headerButtons;
+  justify-content: flex-start;
+  width: 60%;
+}
+
+.authBtns {
+  @include headerButtons;
+  justify-content: flex-end;
+  width: 40%;
+}
