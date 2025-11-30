@@ -1,6 +1,12 @@
 @use 'scss-reset/reset';
 @use 'dependencies';
 
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

@@ -1,23 +1,26 @@
-﻿import styles from './Header.module.scss';
+﻿import { Link } from '@tanstack/react-router';
+import styles from './Header.module.scss';
 
 export const Header = () => {
-    return (
-        <header>
-            <div className={styles.pageNames}>
-                <button className={styles.pageName}>
-                    Home
-                </button>
-                <button className={styles.pageName}>
-                    Recipes
-                </button>
-                <button className={styles.pageName}>
-                    Ingredients
-                </button>
-            </div>
-            <div className={styles.authButtons}>
-                <button>Login</button>
-                <button>Register</button>
-            </div>
-        </header>
-    );
-}
+  return (
+    <header>
+      <div className={styles.pageNames}>
+        <button className={styles.pageName}>
+          <Link to='/home'>Home</Link>
+        </button>
+        <button className={styles.pageName}>
+          Recipes
+        </button>
+        <button className={styles.pageName}>
+          Ingredients
+        </button>
+      </div>
+      <div className={styles.authButtons}>
+        <button>
+          <Link to='/auth/login'>Login</Link>
+        </button>
+        <button>Register</button>
+      </div>
+    </header>
+  );
+};
