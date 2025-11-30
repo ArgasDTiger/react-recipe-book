@@ -1,17 +1,25 @@
-﻿@use '@styles/dependencies';
+﻿@use '@styles/dependencies' as *;
 
 header {
   background-color: #ddd3d3;
   display: flex;
   font-size: 1.1rem;
   justify-content: space-between;
-  padding: .3rem;
+  padding: 1rem .8rem;
 }
 
 @mixin headerButtons {
   display: flex;
   flex-direction: row;
   gap: .4rem;
+
+  button {
+    color: $primary-btn-color;
+  }
+  
+  button:hover {
+    color: $primary-btn-hover-color;
+  }
 }
 
 .pageNames {
@@ -20,7 +28,7 @@ header {
   width: 60%;
 }
 
-.authBtns {
+.authButtons {
   @include headerButtons;
   justify-content: flex-end;
   width: 40%;
