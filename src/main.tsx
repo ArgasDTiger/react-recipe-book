@@ -6,12 +6,6 @@ import { createRouter, RouterProvider } from "@tanstack/react-router";
 
 const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
-}
-
 const root = document.getElementById('root');
 if (!root) throw new Error('No root element found');
 

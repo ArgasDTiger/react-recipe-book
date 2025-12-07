@@ -19,7 +19,9 @@ export const Header = () => {
         <button>
           <Link to='/auth/login'>Login</Link>
         </button>
-        <button>Register</button>
+        <button>
+          <Link to='/auth/register'>Register</Link>
+        </button>
       </div>
     </header>
   );

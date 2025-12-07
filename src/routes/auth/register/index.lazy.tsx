@@ -5,14 +5,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormField, Error } from "@components/ui/form";
 import { useState } from "react";
 
-
 const schema = z.object({
-  email: z.email({message: "Invalid email."})
+  email: z.email({message: "Invalid email."}),
+  password: z.string().min(8, {message: "Password must be at least 8 characters."}),
+  passwordConfirm: z.string(),
+}).refine((data) => data.password === data.passwordConfirm, {
+  message: "Passwords do not match",
+  path: ["passwordConfirm"]
 });
 
 type FormFields = z.infer<typeof schema>;
 
-export const Route = createLazyFileRoute('/auth/login/')({
+export const Route = createLazyFileRoute('/auth/register/')({
   component: RouteComponent,
 });
 
@@ -40,7 +44,7 @@ function RouteComponent() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <FormField
         label='Email'
         name='email'
@@ -51,10 +55,19 @@ function RouteComponent() {
       <FormField
         label='Password'
         name='password'
+        register={register}
+        error={errors.password}
         type="password"
       />
-      <button className="black" disabled={!isValid || isSubmitting} type="submit">Login</button>
-      {responseErrorMessage && <Error />}
+      <FormField
+        label='Confirm Password'
+        name='passwordConfirm'
+        register={register}
+        error={errors.passwordConfirm}
+        type="password"
+      />
+      <button className="black" disabled={!isValid || isSubmitting} type="submit">Register</button>
+      {responseErrorMessage && <Error/>}
     </form>
   );
-} 
+}

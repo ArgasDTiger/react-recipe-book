@@ -25,6 +25,12 @@ button {
     background-color: $black;
     color: $white;
 
+    &:disabled {
+      background-color: $black-disabled;
+      color: $white-disabled;
+      cursor: not-allowed;
+    }
+
     &:hover {
       background-color: $black-hover;
       transition: all 0.2s ease-in-out;
@@ -45,6 +51,10 @@ form {
     text-align: center;
     font-weight: $weight-bold;
     font-size: $text-md;
+  }
+
+  label {
+    margin-top: 0.5rem;
   }
 
   button {
