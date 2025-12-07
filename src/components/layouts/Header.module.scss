@@ -11,7 +11,7 @@ header {
 @mixin headerButtons {
   display: flex;
   flex-direction: row;
-  gap: .4rem;
+  gap: .8rem;
 
   button {
     color: $primary-btn-color;
